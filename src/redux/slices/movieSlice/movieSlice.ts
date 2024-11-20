@@ -1,12 +1,16 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
-import { ServerResponse } from "@/types";
+import { Movie, ServerResponse } from "@/types";
+import { Filters } from "@/enums";
 
 export const movieSlice = createSlice({
   name: "movieSlice",
   initialState,
   reducers: {
-    getMoviesRequest: (state, _action: PayloadAction<{ page: number }>) => {
+    getMoviesRequest: (
+      state,
+      _action: PayloadAction<{ page: number; query?: Filters }>
+    ) => {
       state.isLoading = true;
       state.error = "";
     },
@@ -21,10 +25,34 @@ export const movieSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    addToFavorites: (state, action: PayloadAction<Movie>) => {
+      const movie = action.payload;
+
+      if (!state.favorites.find((fav) => fav.id === movie.id)) {
+        state.favorites.push(movie);
+        localStorage.setItem("favorites", JSON.stringify(state.favorites));
+      }
+    },
+    removeFromFavorites: (state, action: PayloadAction<number>) => {
+      const movieId = action.payload;
+
+      state.favorites = state.favorites.filter((fav) => fav.id !== movieId);
+      localStorage.setItem("favorites", JSON.stringify(state.favorites));
+    },
+    clearFavorites: (state) => {
+      state.favorites = [];
+      localStorage.removeItem("favorites");
+    },
   },
 });
 
-export const { getMoviesRequest, getMoviesSuccess, getMoviesFailure } =
-  movieSlice.actions;
+export const {
+  getMoviesRequest,
+  getMoviesSuccess,
+  getMoviesFailure,
+  addToFavorites,
+  removeFromFavorites,
+  clearFavorites,
+} = movieSlice.actions;
 
 export default movieSlice.reducer;

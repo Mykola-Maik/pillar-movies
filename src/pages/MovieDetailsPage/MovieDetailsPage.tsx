@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function MovieDetailsPage() {
   const navigate = useNavigate();
+  const { id } = useParams();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -16,5 +17,5 @@ export default function MovieDetailsPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [navigate]);
 
-  return <Box>Movie details page</Box>;
+  return <Box>Movie details page {id}</Box>;
 }

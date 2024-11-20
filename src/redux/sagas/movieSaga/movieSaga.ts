@@ -8,14 +8,15 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import HttpService from "@/services/HttpService/HttpService";
 import { AxiosError, type AxiosResponse } from "axios";
 import type { ServerResponse } from "@/types";
+import { Filters } from "@/enums";
 
 function* getMoviesSaga({
-  payload: { page },
-}: PayloadAction<{ page: number }>) {
+  payload: { page, query = Filters.POPULAR },
+}: PayloadAction<{ page: number; query?: Filters }>) {
   try {
     const response: AxiosResponse<ServerResponse> = yield call(
       HttpService.get,
-      `/movie/popular?page=${page}`
+      `/movie/${query}?page=${page}`
     );
 
     yield put(getMoviesSuccess(response.data));

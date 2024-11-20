@@ -8,9 +8,4 @@ export const pagesList = [
     name: "Home",
     href: ROUTES.HOME,
   },
-  {
-    id: id++,
-    name: "Favorites",
-    href: ROUTES.FAVORITES,
-  },
 ];
