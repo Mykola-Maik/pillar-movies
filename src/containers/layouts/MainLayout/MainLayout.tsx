@@ -3,7 +3,11 @@ import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import theme from "@/styles/muiTheme";
 
-export default function MainLayout() {
+export default function MainLayout({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <Box
       sx={{
@@ -25,6 +29,7 @@ export default function MainLayout() {
         }}
       >
         <Outlet />
+        {children}
       </Box>
       <Footer />
     </Box>
