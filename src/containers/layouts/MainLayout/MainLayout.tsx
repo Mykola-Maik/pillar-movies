@@ -21,7 +21,6 @@ export default function MainLayout() {
           display: "flex",
           flexDirection: "column",
           flexGrow: 1,
-          padding: "10px 15px",
           backgroundColor: theme.palette.common.white,
         }}
       >

@@ -69,7 +69,14 @@ export default function HomePage() {
   const pages = Math.min(totalPages, 500);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        flexGrow: 1,
+        padding: "10px 15px",
+      }}
+    >
       <Grid
         container
         spacing={2}
@@ -88,11 +95,7 @@ export default function HomePage() {
           />
         </Grid>
       </Grid>
-      <Grid
-        container
-        spacing={4}
-        sx={{ mb: 8, flexGrow: 1, outline: "none" }}
-      >
+      <Grid container spacing={4} sx={{ mb: 8, flexGrow: 1, outline: "none" }}>
         {moviesToDisplay.length > 0 ? (
           moviesToDisplay.map((movie, index) => (
             <Grid
