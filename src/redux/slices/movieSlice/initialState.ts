@@ -1,7 +1,8 @@
 import { MovieSliceState } from "@/types";
 
 export const initialState: MovieSliceState = {
-  total: 0,
+  totalMovies: 0,
+  totalPages: 1,
   movies: [],
   isLoading: false,
   error: "",

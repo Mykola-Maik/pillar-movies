@@ -1,4 +1,5 @@
 import { Box, CircularProgress } from "@mui/material";
+import theme from "@/styles/muiTheme";
 
 export const Loader = () => (
   <Box
@@ -9,6 +10,6 @@ export const Loader = () => (
       height: "100vh",
     }}
   >
-    <CircularProgress />
+    <CircularProgress sx={{ color: theme.palette.custom.blue }} />
   </Box>
 );

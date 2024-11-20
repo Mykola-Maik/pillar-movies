@@ -13,7 +13,8 @@ export const movieSlice = createSlice({
     getMoviesSuccess: (state, action: PayloadAction<ServerResponse>) => {
       state.isLoading = false;
       state.error = "";
-      state.total = action.payload.total_results;
+      state.totalPages = action.payload.total_pages;
+      state.totalMovies = action.payload.total_results;
       state.movies = action.payload.results;
     },
     getMoviesFailure: (state, action: PayloadAction<string>) => {

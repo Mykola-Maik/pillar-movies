@@ -1,7 +1,8 @@
 import { Movie } from "@/types";
 
 export interface MovieSliceState {
-  total: number;
+  totalMovies: number;
+  totalPages: number;
   movies: Movie[];
   isLoading: boolean;
   error: string;
