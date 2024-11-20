@@ -13,7 +13,6 @@ const HomePage = lazy(() => import("@/pages/HomePage/HomePage"));
 const MovieDetailsPage = lazy(
   () => import("@/pages/MovieDetailsPage/MovieDetailsPage")
 );
-const FavoritesPage = lazy(() => import("@/pages/FavoritesPage/FavoritesPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage/NotFoundPage"));
 
 const router = createBrowserRouter([
@@ -43,14 +42,6 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <MovieDetailsPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: ROUTES.FAVORITES,
-        element: (
-          <Suspense fallback={<Loader />}>
-            <FavoritesPage />
           </Suspense>
         ),
       },

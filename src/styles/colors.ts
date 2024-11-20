@@ -4,6 +4,7 @@ export const colors = {
   mainSecondaryText: "#505F6F",
   mainBlue: "#5865F2",
   mainError: "#F72F53",
+  blue: "#032541",
   buttonActive: "#5865F2",
   buttonDisabled: "#AAB9CE",
   mainBackground: "#ECEFF3",

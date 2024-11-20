@@ -6,7 +6,19 @@ import { palette } from "@/styles/palette";
 const muiTheme: Theme = createTheme({
   typography: typography as TypographyOptions,
   palette: palette as PaletteOptions,
-  components: {},
+  components: {
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          display: "flex",
+          padding: "10.5px 12px",
+        },
+        icon: {
+          display: "none",
+        },
+      },
+    },
+  },
 });
 
 export default muiTheme;

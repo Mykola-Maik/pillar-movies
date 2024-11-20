@@ -17,9 +17,13 @@ declare module "@mui/material/Typography" {
 
 declare module "@mui/material/styles/createPalette" {
   interface PaletteOptions {
-    custom?: {};
+    custom?: {
+      blue?: string;
+    };
   }
   interface Palette {
-    custom: {};
+    custom: {
+      blue: string;
+    };
   }
 }
